@@ -1,11 +1,20 @@
 package com.example.demo.entity;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.NotNull;
+
 import lombok.Data;
 
 @Data
 public class ShoppingList {
+	
 	private int id;
-	private String ItemName;
-	private Integer ItemCount;
-	private String ItemPrice;	
-	private String ItemMemo;
+	
+	@Max(50)
+	private String Name;
+	
+	@NotNull
+	private Integer Quantity;
+	
+	@NotNull
+	private int Price;	
 }
