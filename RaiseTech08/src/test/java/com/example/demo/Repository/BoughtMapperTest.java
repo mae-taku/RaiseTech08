@@ -9,21 +9,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.TestPropertySource;
 
-import com.example.demo.entity.ShoppingList;
+import com.example.demo.Form.BoughtListForm;
 
 @SpringBootTest
 @TestPropertySource(locations = "classpath:test.properties")
-class ShoppingMapperTest {
+class BoughtMapperTest {
 	
 	@Autowired
-	ShoppingMapper target;
+	BoughtMapper target;
 	
 	@Test
-	void 全件検索_2件あることを確認() {
+	void 全件検索() {
 	
-		List<ShoppingList> actual = target.selectAll();
+		List<BoughtListForm> actual = target.selectAll();
 		
-		assertThat(actual.size()).isEqualTo(2);
+		assertThat(actual.size()).isEqualTo(1);
 	}
 
 }

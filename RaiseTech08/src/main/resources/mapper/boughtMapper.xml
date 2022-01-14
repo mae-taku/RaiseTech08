@@ -3,10 +3,10 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!-- Mppperとxmlのマッピング -->
-<mapper namespace="com.example.demo.Repository.ShoppingMapper">
+<mapper namespace="com.example.demo.Repository.BoughtMapper">
 	<!-- 全件取得 -->
 	<select id="selectAll"
-		resultType="com.example.demo.entity.ShoppingList">
-		SELECT * FROM ShoppingList
+		resultType="com.example.demo.Form.BoughtListForm">
+		SELECT * FROM BoughtList
 	</select>
 </mapper>
