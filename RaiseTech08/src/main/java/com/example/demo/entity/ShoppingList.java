@@ -10,11 +10,11 @@ public class ShoppingList {
 	private int id;
 	
 	@Max(50)
-	private String Name;
+	private String name;
 	
 	@NotNull
-	private Integer Quantity;
+	private Integer quantity;
 	
 	@NotNull
-	private int Price;	
+	private int price;	
 }
