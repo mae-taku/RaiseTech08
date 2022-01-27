@@ -3,14 +3,13 @@ package com.example.demo.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.entity.ShoppingList;
+import com.example.demo.repository.ShoppingJpaRepository;
 
 /**
- * Spring JDBC のサービスクラス
+ * Spring Jpa のサービスクラス
  * @author maetaku
  */
 
@@ -18,7 +17,7 @@ import com.example.demo.entity.ShoppingList;
 public class ShoppingService {
 	
 	@Autowired
-	private JdbcTemplate jdbcTemplate;
+	ShoppingJpaRepository shoppingJpaRepository;
 	
 	/**
 	 * 全件検索メソッド
@@ -27,11 +26,6 @@ public class ShoppingService {
 	
 	public List<ShoppingList> findAll(){
 		
-		//SQL
-		String query = "SELECT * FROM shopping_list";
-		
-		List<ShoppingList> shoppingLists = jdbcTemplate.query(query, new BeanPropertyRowMapper<>(ShoppingList.class));
-		
-		return shoppingLists;
+		return shoppingJpaRepository.findAll();
 	}
 }
