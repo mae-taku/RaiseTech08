@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<title>買い物リスト一覧 </title>
+</head>
+<body>
+	<h2>買い物リスト一覧</h2>
+	<table>
+		<tr>
+			<th>ID</th>
+			<th>品目</th>
+			<th>数量</th>
+			<th>値段</th>
+		</tr>
+		<tr th:each="All : ${list}">
+			<td th:text="${All.id}"></td>
+			<td th:text="${All.name}"></td>
+			<td th:text="${All.quantity}"></td>
+			<td th:text="${All.price}"></td>
+		</tr>
+	</table>
+	<a th:href="@{/top}">トップ画面へ</a>
+</body>
+</html>
