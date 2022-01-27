@@ -13,7 +13,7 @@ public class ShoppingList {
 	private String name;
 	
 	@NotNull
-	private Integer quantity;
+	private int quantity;
 	
 	@NotNull
 	private int price;	
