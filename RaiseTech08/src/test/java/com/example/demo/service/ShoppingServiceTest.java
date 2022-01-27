@@ -18,7 +18,7 @@ class ShoppingServiceTest {
 	
 	@Test
 	void 全件出力_8件あることを確認() {
-		System.out.println("*** JDBC READ Test started. ***");
+		System.out.println("***READ Test started. ***");
 		
 		//全件検索
 		List<ShoppingList> actual = target.findAll();
@@ -27,7 +27,7 @@ class ShoppingServiceTest {
 		//全件＝8件あることを確認。
 		assertThat(actual.size()).isEqualTo(8);
 		
-		System.out.println("*** JDBC READ Test ended. ***");
+		System.out.println("***READ Test ended. ***");
 	}
 
 }
