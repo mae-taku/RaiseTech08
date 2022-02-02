@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+  <mapper namespace="com.example.demo.repository.ListMapper">
+	
+	<resultMap type="com.example.demo.entity.ShoppingList" id="listOne">
+  		<!--  id属性は任意の値 -->
+    	<!--  columnはSQLのカラム　propertyはエンティティクラスのフィールド -->
+    	<id column="id" property="id"/>
+    	<result column="name" property="name"/>
+    	<result column="quantity" property="quantity"/>
+    	<result column="price" property="price"/>
+  	</resultMap>
+  
+  <select id="selectAll" resultType="ShoppingList">
+    select  *
+    from    shopping_list
+  </select>
+  
+  <select id="selectOne" resultMap="listOne">
+    select  *
+    from    shopping_list
+    where	id = #{id}
+  </select>
+  
+  <insert id="insertOne">
+    insert into shopping_list (
+    	id,
+        name,
+        quantity,
+        price
+    )
+    values (
+    	#{id},
+        #{name},
+        #{quantity},
+        #{price}
+    )
+  </insert>
+ </mapper>

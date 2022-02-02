@@ -1,18 +1,16 @@
 package com.example.demo.entity;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.NotNull;
 
 import lombok.Data;
 
-@Entity
+//@Entity
 @Data
 public class ShoppingList {
 	
-	@Id
-	@GeneratedValue
+//	@Id
+//	@GeneratedValue
+	@NotNull
 	private int id;
 	
 	@Max(50)

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.tyhmeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1, shrink-to-fit=no">
+<!-- CSS読み込み -->
+<link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+<link rel="stylesheet" th:href="@{/css/register.css}">
+<!-- JS読み込み -->
+<script th:src="@{/webjars/jquery/jquery.min.js}" defer></script>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}" defer></script>
+
+<title>お買い物リストへ追加</title>
+</head>
+<body>		
+	<h2>本日のお買い物リストへ追加</h2>	
+		<form th:action="@{/register}" th:object="${shoppingList}"
+			th:method="post">
+			
+				<div>
+					<label>ID：</label>
+				<input type="text" th:field="*{id}" class="form-control">
+				</div>
+				<br>
+				<div>
+				<label>名前：</label>
+				<input type="text" th:field="*{name}" class="form-control">
+				</div>
+				<br>
+				<div>
+				<label>個数：</label>
+				<input type="text" th:field="*{quantity}" class="form-control">
+				</div>
+				<br>
+				<div>			
+				<label>値段：</label>
+				<input type="text" th:field="*{price}" class="form-control">
+				</div>
+				
+				<br><br>
+			
+				<button>　登録　</button>
+				
+		</form>
+		
+		<br><br><a th:href="@{/top}">トップ画面へ</a>
+</body>
+</html>

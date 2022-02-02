@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.tyhmeleaf.org">
 <head>
-<meta charset="UTF-8"></meta>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1, shrink-to-fit=no">
 <!-- CSS読み込み -->
 <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
@@ -13,45 +13,40 @@
 
 <title>お買い物リスト</title>
 </head>
-	
-	<h2>お買い物リスト</h2>
-		<form th:action="@{/top/food}" method="post"
-			th:object="${SearchRequest}">
-			<div>
-				ID：<input type="text" name="id"><!--  size="100"/> -->
-			</div>
-			<br>
-			<div>
-				<button type="submit">食べ物検索</button>
-			</div>
-		</form>
-		<div th:if="${shoppingList}">
-			<table th:object="${shoppingList}">
+<body>		
+	<div class="container">
+	<h2>本日のお買い物リスト</h2>	
+		<table>
 			<thead>
 				<tr>
 					<th>ID</th>
 					<th>名前</th>
 					<th>個数</th>
 					<th>値段</th>
+					<th>編集</th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
+				<tr th:each="shoppingList:${shoppingList}" th:object="${shoppingList}">
 					<td th:text="*{id}" th:id="id"></td>
                 	<td th:text="*{name}" th:id="name"></td>
                 	<td th:text="*{quantity}" th:id="quantity"></td>
                 	<td th:text="*{price}" th:id="price"></td>
+                	<td>
+                	<div class="btn-group" role="group" aria-label="Basic example">
+					<form th:action="@{'/update/' + ${shoppingList.id}}" method="get">
+						<button type="button" class="btn btn-primary">更新</button>
+					</form>
+					<form th:action="@{'/delete/' + ${shoppingList.id}}" method="post">
+						<button type="button" class="btn btn-danger">削除</button>
+					</form>
+					</div>
+					</td>
                 </tr>
 			</tbody>
 		</table>
 		</div>
 		
-		<form th:action="@{/shoppingList}" method="post">
-			<button type="submit">お買い物リストへ</button>
-		</form>
-		
-		<br>
-      	<a th:href="@{/register}">
-      		<button>新規登録はこちら</button>
-      	</a>
+		<br><br><a th:href="@{/top}">トップ画面へ</a>
+</body>
 </html>
