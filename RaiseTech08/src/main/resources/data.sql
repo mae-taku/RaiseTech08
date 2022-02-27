@@ -1,3 +1,4 @@
+delete from shopping_list;
 INSERT INTO shopping_list (name, quantity, price) VALUES 
  ('りんご', 1, 100),
  ('バナナ', 1, 150),
